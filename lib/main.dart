@@ -2,18 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/barraEstado.dart';
 import 'package:flutter_application_1/bodyContent.dart';
 import 'package:flutter_application_1/controlador.dart';
-import 'package:flutter_application_1/datosPersonale.dart';
-import 'package:flutter_application_1/experienciaLaboral.dart';
+import 'package:flutter_application_1/deportes.dart';
+import 'package:flutter_application_1/tecnologia.dart';
 import 'package:flutter_application_1/menuDrawer.dart';
+import 'package:flutter_application_1/entretenimiento.dart';
 import 'package:get/get.dart';
 
 void main(List<String> args) {
-
   //inicializa mi metodo controlador
-  Get.put(Controlador());
+  Get.put(Controlador()); //put para actualizacion de estados
   runApp(const Home());
 }
-Controlador controladorBody = Get.find();
+
+//hacer llamado y uso
+Controlador cambioBody = Get.find();
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -28,16 +30,21 @@ class _HomeState extends State<Home> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: barraEstado(),
-        drawer: menuDrawer(),
-        body: coleccionPaginas[0],
-      ),
+          appBar: barraEstado(),
+          drawer: menuDrawer(),
+          body: Obx(() => coleccionPaginas[cambioBody.cambioVista])),
     );
   }
 }
 
-
 //////////////////////////////////
-List coleccionPaginas=[bodyContent(), datosPersonales(), experienciaLaboral()];
+List coleccionPaginas = [
+  bodyContent(),
+  deportes(),
+  tecnologia(),
+  entretenimineto()
+];
 
 /////////////////////////////////
+
+  

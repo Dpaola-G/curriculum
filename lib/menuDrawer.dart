@@ -1,57 +1,56 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/main.dart';
 
+
 menuDrawer() {
   return Drawer(
     child: Column(
       children: [
-        Image(
-            image: NetworkImage(
-                "https://www.shutterstock.com/image-vector/cv-dots-bubbles-letters-circle-260nw-2073951833.jpg")),
+
+DrawerHeader(
+  decoration: BoxDecoration(
+    color: Color.fromARGB(255, 39, 103, 176), // Fondo azul
+  ),
+  child: Center(
+    child: Text(
+      'Menu',
+      style: TextStyle(
+        color: Colors.white, // Texto blanco para contrastar con el fondo azul
+        fontSize: 24,
+      ),
+    ),
+  ),
+),
+
         ListTile(
           title: Text("Inicio"),
           leading: Icon(Icons.home),
-        ),
-        ListTile(
-          title: Text("Datos Personales"),
-          leading: Icon(Icons.arrow_back_ios_new_outlined),
           onTap: (){
-            controladorBody.cambioTitulo("Datos_personales");
+            cambioBody.cambioTitulo("inicio");
+            cambioBody.cambioPosicion(0);
           },
         ),
         ListTile(
-          title: Text("Referencias"),
-          leading: Icon(Icons.arrow_back_ios_new_outlined),
-            onTap: (){
-            controladorBody.cambioTitulo("Datos_personales");
-            }
-        ),
-        ListTile(
-          title: Text("Acerca de...."),
-          leading: Icon(Icons.arrow_back_ios_new_outlined),
+          title: Text("Deportes"),
+          leading: Icon(Icons.sports_soccer),
           onTap: (){
-            controladorBody.cambioTitulo("Acerca de....");
-          }
+              cambioBody.cambioTitulo("Deportes");
+               cambioBody.cambioPosicion(1);
+               },
+        ),
+
+      
+        ListTile(
+          title: Text("tecnologia"),
+          leading: Icon(Icons.devices),
+          onTap: (){
+              cambioBody.cambioTitulo("tecnologia");
+              cambioBody.cambioPosicion(2);
+           }
         ),
         ListTile(
-          title: Text("Salir "),
-          leading: Icon(Icons.arrow_back_ios_new_outlined),
-        ),
-        ListTile(
-          title: Text("Contactos"),
-          leading: Icon(Icons.arrow_back_ios_new_outlined),
-        ),
-        ListTile(
-          title: Text("Termios Y Condiciones"),
-          leading: Icon(Icons.arrow_back_ios_new_outlined),
-        ),
-        ListTile(
-          title: Text("Politicas"),
-          leading: Icon(Icons.arrow_back_ios_new_outlined),
-        ),
-        ListTile(
-          title: Text("Extras"),
-          leading: Icon(Icons.arrow_back_ios_new_outlined),
+          title: Text("entretenimiento "),
+          leading: Icon(Icons.movie),
         ),
       ],
     ),
